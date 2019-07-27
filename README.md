@@ -16,7 +16,7 @@ make docker-run
 In the docker image run...
 
 ```
-make gopy-build
+make build-hi
 ```
 
 You should see that it failed...
