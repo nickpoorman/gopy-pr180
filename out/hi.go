@@ -1255,12 +1255,6 @@ func hi_NewPerson(name *C.char, age C.longlong) CGoHandle {
 
 }
 
-//export hi_NewPersonWithAge
-func hi_NewPersonWithAge(age C.longlong) CGoHandle {
-	return handleFromPtr_Ptr_hi_Person(hi.NewPersonWithAge(int(age)))
-
-}
-
 //export hi_NewActivePerson
 func hi_NewActivePerson(h C.longlong) CGoHandle {
 	cret, __err := hi.NewActivePerson(int(h))
@@ -1273,26 +1267,29 @@ func hi_NewActivePerson(h C.longlong) CGoHandle {
 	return handleFromPtr_Ptr_hi_Person(cret)
 }
 
-// ---- Functions ---
-
-//export hi_Concat
-func hi_Concat(s1 *C.char, s2 *C.char) *C.char {
-	return C.CString(hi.Concat(C.GoString(s1), C.GoString(s2)))
+//export hi_NewPersonWithAge
+func hi_NewPersonWithAge(age C.longlong) CGoHandle {
+	return handleFromPtr_Ptr_hi_Person(hi.NewPersonWithAge(int(age)))
 
 }
 
-//export hi_Hi
-func hi_Hi(goRun C.char) {
-	if boolPyToGo(goRun) {
-		go hi.Hi()
-	} else {
-		hi.Hi()
-	}
+// ---- Functions ---
+
+//export hi_PersonAsIface
+func hi_PersonAsIface(name *C.char, age C.longlong) CGoHandle {
+	return handleFromPtr_hi_PersIface(hi.PersonAsIface(C.GoString(name), int(age)))
+
 }
 
 //export hi_Add
 func hi_Add(i C.longlong, j C.longlong) C.longlong {
 	return C.longlong(hi.Add(int(i), int(j)))
+
+}
+
+//export hi_Concat
+func hi_Concat(s1 *C.char, s2 *C.char) *C.char {
+	return C.CString(hi.Concat(C.GoString(s1), C.GoString(s2)))
 
 }
 
@@ -1317,8 +1314,11 @@ func hi_LookupQuestion(n C.longlong) *C.char {
 	return C.CString(cret)
 }
 
-//export hi_PersonAsIface
-func hi_PersonAsIface(name *C.char, age C.longlong) CGoHandle {
-	return handleFromPtr_hi_PersIface(hi.PersonAsIface(C.GoString(name), int(age)))
-
+//export hi_Hi
+func hi_Hi(goRun C.char) {
+	if boolPyToGo(goRun) {
+		go hi.Hi()
+	} else {
+		hi.Hi()
+	}
 }

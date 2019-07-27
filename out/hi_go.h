@@ -404,21 +404,21 @@ extern long long int hi_NewCouple(long long int p0, long long int p1);
 
 extern long long int hi_NewPerson(char* p0, long long int p1);
 
-extern long long int hi_NewPersonWithAge(long long int p0);
-
 extern long long int hi_NewActivePerson(long long int p0);
 
-extern char* hi_Concat(char* p0, char* p1);
+extern long long int hi_NewPersonWithAge(long long int p0);
 
-extern void hi_Hi(char p0);
+extern long long int hi_PersonAsIface(char* p0, long long int p1);
 
 extern long long int hi_Add(long long int p0, long long int p1);
+
+extern char* hi_Concat(char* p0, char* p1);
 
 extern void hi_Hello(char* p0, char p1);
 
 extern char* hi_LookupQuestion(long long int p0);
 
-extern long long int hi_PersonAsIface(char* p0, long long int p1);
+extern void hi_Hi(char p0);
 
 #ifdef __cplusplus
 }

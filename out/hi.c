@@ -2331,24 +2331,6 @@ PyObject * _wrap__hi_hi_NewPerson(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *
 
 
 PyObject *
-_wrap__hi_hi_NewPersonWithAge(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
-{
-    PyObject *py_retval;
-    int64_t retval;
-    int64_t age;
-    const char *keywords[] = {"age", NULL};
-
-    if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "L", (char **) keywords, &age)) {
-        return NULL;
-    }
-    retval = hi_NewPersonWithAge(age);
-    py_retval = Py_BuildValue((char *) "L", retval);
-    return py_retval;
-}
-PyObject * _wrap__hi_hi_NewPersonWithAge(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
-
-
-PyObject *
 _wrap__hi_hi_NewActivePerson(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
 {
     PyObject *py_retval;
@@ -2367,42 +2349,40 @@ PyObject * _wrap__hi_hi_NewActivePerson(PyObject * PYBINDGEN_UNUSED(dummy), PyOb
 
 
 PyObject *
-_wrap__hi_hi_Concat(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
+_wrap__hi_hi_NewPersonWithAge(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
 {
     PyObject *py_retval;
-    char *retval;
-    char *s1;
-    char *s2;
-    const char *keywords[] = {"s1", "s2", NULL};
+    int64_t retval;
+    int64_t age;
+    const char *keywords[] = {"age", NULL};
 
-    if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "ss", (char **) keywords, &s1, &s2)) {
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "L", (char **) keywords, &age)) {
         return NULL;
     }
-    retval = hi_Concat(s1, s2);
-    py_retval = Py_BuildValue((char *) "s", retval);
+    retval = hi_NewPersonWithAge(age);
+    py_retval = Py_BuildValue((char *) "L", retval);
     return py_retval;
 }
-PyObject * _wrap__hi_hi_Concat(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
+PyObject * _wrap__hi_hi_NewPersonWithAge(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
 
 
 PyObject *
-_wrap__hi_hi_Hi(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
+_wrap__hi_hi_PersonAsIface(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
 {
     PyObject *py_retval;
-    bool goRun;
-    PyObject *py_goRun;
-    const char *keywords[] = {"goRun", NULL};
+    int64_t retval;
+    char *name;
+    int64_t age;
+    const char *keywords[] = {"name", "age", NULL};
 
-    if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "O", (char **) keywords, &py_goRun)) {
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "sL", (char **) keywords, &name, &age)) {
         return NULL;
     }
-    goRun = (bool) PyObject_IsTrue(py_goRun);
-    hi_Hi(goRun);
-    Py_INCREF(Py_None);
-    py_retval = Py_None;
+    retval = hi_PersonAsIface(name, age);
+    py_retval = Py_BuildValue((char *) "L", retval);
     return py_retval;
 }
-PyObject * _wrap__hi_hi_Hi(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
+PyObject * _wrap__hi_hi_PersonAsIface(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
 
 
 PyObject *
@@ -2422,6 +2402,25 @@ _wrap__hi_hi_Add(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *k
     return py_retval;
 }
 PyObject * _wrap__hi_hi_Add(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
+
+
+PyObject *
+_wrap__hi_hi_Concat(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
+{
+    PyObject *py_retval;
+    char *retval;
+    char *s1;
+    char *s2;
+    const char *keywords[] = {"s1", "s2", NULL};
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "ss", (char **) keywords, &s1, &s2)) {
+        return NULL;
+    }
+    retval = hi_Concat(s1, s2);
+    py_retval = Py_BuildValue((char *) "s", retval);
+    return py_retval;
+}
+PyObject * _wrap__hi_hi_Concat(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
 
 
 PyObject *
@@ -2464,22 +2463,23 @@ PyObject * _wrap__hi_hi_LookupQuestion(PyObject * PYBINDGEN_UNUSED(dummy), PyObj
 
 
 PyObject *
-_wrap__hi_hi_PersonAsIface(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
+_wrap__hi_hi_Hi(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
 {
     PyObject *py_retval;
-    int64_t retval;
-    char *name;
-    int64_t age;
-    const char *keywords[] = {"name", "age", NULL};
+    bool goRun;
+    PyObject *py_goRun;
+    const char *keywords[] = {"goRun", NULL};
 
-    if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "sL", (char **) keywords, &name, &age)) {
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "O", (char **) keywords, &py_goRun)) {
         return NULL;
     }
-    retval = hi_PersonAsIface(name, age);
-    py_retval = Py_BuildValue((char *) "L", retval);
+    goRun = (bool) PyObject_IsTrue(py_goRun);
+    hi_Hi(goRun);
+    Py_INCREF(Py_None);
+    py_retval = Py_None;
     return py_retval;
 }
-PyObject * _wrap__hi_hi_PersonAsIface(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
+PyObject * _wrap__hi_hi_Hi(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
 
 static PyMethodDef _hi_functions[] = {
     {(char *) "GoPyInit", (PyCFunction) _wrap__hi_GoPyInit, METH_NOARGS, "GoPyInit()\n\n" },
@@ -2608,14 +2608,14 @@ static PyMethodDef _hi_functions[] = {
     {(char *) "hi_Floats_append", (PyCFunction) _wrap__hi_hi_Floats_append, METH_VARARGS|METH_KEYWORDS, "hi_Floats_append(handle, value)\n\ntype: handle: int64_t\ntype: value: float" },
     {(char *) "hi_NewCouple", (PyCFunction) _wrap__hi_hi_NewCouple, METH_VARARGS|METH_KEYWORDS, "hi_NewCouple(p1, p2)\n\ntype: p1: int64_t\ntype: p2: int64_t" },
     {(char *) "hi_NewPerson", (PyCFunction) _wrap__hi_hi_NewPerson, METH_VARARGS|METH_KEYWORDS, "hi_NewPerson(name, age)\n\ntype: name: char *\ntype: age: int64_t" },
-    {(char *) "hi_NewPersonWithAge", (PyCFunction) _wrap__hi_hi_NewPersonWithAge, METH_VARARGS|METH_KEYWORDS, "hi_NewPersonWithAge(age)\n\ntype: age: int64_t" },
     {(char *) "hi_NewActivePerson", (PyCFunction) _wrap__hi_hi_NewActivePerson, METH_VARARGS|METH_KEYWORDS, "hi_NewActivePerson(h)\n\ntype: h: int64_t" },
-    {(char *) "hi_Concat", (PyCFunction) _wrap__hi_hi_Concat, METH_VARARGS|METH_KEYWORDS, "hi_Concat(s1, s2)\n\ntype: s1: char *\ntype: s2: char *" },
-    {(char *) "hi_Hi", (PyCFunction) _wrap__hi_hi_Hi, METH_VARARGS|METH_KEYWORDS, "hi_Hi(goRun)\n\ntype: goRun: bool" },
+    {(char *) "hi_NewPersonWithAge", (PyCFunction) _wrap__hi_hi_NewPersonWithAge, METH_VARARGS|METH_KEYWORDS, "hi_NewPersonWithAge(age)\n\ntype: age: int64_t" },
+    {(char *) "hi_PersonAsIface", (PyCFunction) _wrap__hi_hi_PersonAsIface, METH_VARARGS|METH_KEYWORDS, "hi_PersonAsIface(name, age)\n\ntype: name: char *\ntype: age: int64_t" },
     {(char *) "hi_Add", (PyCFunction) _wrap__hi_hi_Add, METH_VARARGS|METH_KEYWORDS, "hi_Add(i, j)\n\ntype: i: int64_t\ntype: j: int64_t" },
+    {(char *) "hi_Concat", (PyCFunction) _wrap__hi_hi_Concat, METH_VARARGS|METH_KEYWORDS, "hi_Concat(s1, s2)\n\ntype: s1: char *\ntype: s2: char *" },
     {(char *) "hi_Hello", (PyCFunction) _wrap__hi_hi_Hello, METH_VARARGS|METH_KEYWORDS, "hi_Hello(s, goRun)\n\ntype: s: char *\ntype: goRun: bool" },
     {(char *) "hi_LookupQuestion", (PyCFunction) _wrap__hi_hi_LookupQuestion, METH_VARARGS|METH_KEYWORDS, "hi_LookupQuestion(n)\n\ntype: n: int64_t" },
-    {(char *) "hi_PersonAsIface", (PyCFunction) _wrap__hi_hi_PersonAsIface, METH_VARARGS|METH_KEYWORDS, "hi_PersonAsIface(name, age)\n\ntype: name: char *\ntype: age: int64_t" },
+    {(char *) "hi_Hi", (PyCFunction) _wrap__hi_hi_Hi, METH_VARARGS|METH_KEYWORDS, "hi_Hi(goRun)\n\ntype: goRun: bool" },
     {NULL, NULL, 0, NULL}
 };
 #if PY_VERSION_HEX >= 0x03000000

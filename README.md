@@ -68,4 +68,5 @@ Test that it worked...
 python3
 >>> import hi
 >>> dir(hi)
+>>> hi.Hello("you")
 ```

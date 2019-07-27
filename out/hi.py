@@ -416,39 +416,36 @@ def NewPerson(name, age):
 	NewPerson creates a new Person value
 	"""
 	return Person(handle=_hi.hi_NewPerson(name, age))
-def NewPersonWithAge(age):
-	"""NewPersonWithAge(int age) object
-	
-	NewPersonWithAge creates a new Person with a specific age
-	"""
-	return Person(handle=_hi.hi_NewPersonWithAge(age))
 def NewActivePerson(h):
 	"""NewActivePerson(int h) object, str
 	
 	NewActivePerson creates a new Person with a certain amount of work done.
 	"""
 	return Person(handle=_hi.hi_NewActivePerson(h))
+def NewPersonWithAge(age):
+	"""NewPersonWithAge(int age) object
+	
+	NewPersonWithAge creates a new Person with a specific age
+	"""
+	return Person(handle=_hi.hi_NewPersonWithAge(age))
 
 
 # ---- Functions ---
-def Concat(s1, s2):
-	"""Concat(str s1, str s2) str
-	
-	Concat concatenates two strings together and returns the resulting string.
-	"""
-	return _hi.hi_Concat(s1, s2)
-def Hi(goRun=False):
-	"""Hi() 
-	
-	Hi prints hi from Go
-	"""
-	_hi.hi_Hi(goRun)
+def PersonAsIface(name, age):
+	"""PersonAsIface(str name, int age) object"""
+	return PersIface(handle=_hi.hi_PersonAsIface(name, age))
 def Add(i, j):
 	"""Add(int i, int j) int
 	
 	Add returns the sum of its arguments.
 	"""
 	return _hi.hi_Add(i, j)
+def Concat(s1, s2):
+	"""Concat(str s1, str s2) str
+	
+	Concat concatenates two strings together and returns the resulting string.
+	"""
+	return _hi.hi_Concat(s1, s2)
 def Hello(s, goRun=False):
 	"""Hello(str s) 
 	
@@ -461,8 +458,11 @@ def LookupQuestion(n):
 	LookupQuestion returns question for given answer.
 	"""
 	return _hi.hi_LookupQuestion(n)
-def PersonAsIface(name, age):
-	"""PersonAsIface(str name, int age) object"""
-	return PersIface(handle=_hi.hi_PersonAsIface(name, age))
+def Hi(goRun=False):
+	"""Hi() 
+	
+	Hi prints hi from Go
+	"""
+	_hi.hi_Hi(goRun)
 
 

@@ -133,14 +133,14 @@ mod.add_function('hi_Floats_set', None, [param('int64_t', 'handle'), param('int'
 mod.add_function('hi_Floats_append', None, [param('int64_t', 'handle'), param('float', 'value')])
 mod.add_function('hi_NewCouple', retval('int64_t'), [param('int64_t', 'p1'), param('int64_t', 'p2')])
 mod.add_function('hi_NewPerson', retval('int64_t'), [param('char*', 'name'), param('int64_t', 'age')])
-mod.add_function('hi_NewPersonWithAge', retval('int64_t'), [param('int64_t', 'age')])
 mod.add_function('hi_NewActivePerson', retval('int64_t'), [param('int64_t', 'h')])
-mod.add_function('hi_Concat', retval('char*'), [param('char*', 's1'), param('char*', 's2')])
-mod.add_function('hi_Hi', None, [param('bool', 'goRun')])
+mod.add_function('hi_NewPersonWithAge', retval('int64_t'), [param('int64_t', 'age')])
+mod.add_function('hi_PersonAsIface', retval('int64_t'), [param('char*', 'name'), param('int64_t', 'age')])
 mod.add_function('hi_Add', retval('int64_t'), [param('int64_t', 'i'), param('int64_t', 'j')])
+mod.add_function('hi_Concat', retval('char*'), [param('char*', 's1'), param('char*', 's2')])
 mod.add_function('hi_Hello', None, [param('char*', 's'), param('bool', 'goRun')])
 mod.add_function('hi_LookupQuestion', retval('char*'), [param('int64_t', 'n')])
-mod.add_function('hi_PersonAsIface', retval('int64_t'), [param('char*', 'name'), param('int64_t', 'age')])
+mod.add_function('hi_Hi', None, [param('bool', 'goRun')])
 
 mod.generate(open('hi.c', 'w'))
 
